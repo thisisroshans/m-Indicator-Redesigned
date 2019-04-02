@@ -1,67 +1,63 @@
 package com.lilliemountain.bulbul;
 
+import android.os.RecoverySystem;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Switch;
-import android.widget.TextView;
 
-import com.lilliemountain.bulbul.adapter.FaresAdapter;
-import com.lilliemountain.bulbul.pojo.fares.Route;
-import com.lilliemountain.bulbul.pojo.fares.Tickets;
+import com.lilliemountain.bulbul.adapter.RouteAdapter;
+import com.lilliemountain.bulbul.pojo.Routes;
+import com.lilliemountain.bulbul.pojo.Tickets;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FareActivity extends AppCompatActivity {
-
+    AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
+    List<String> stations = new ArrayList<>();
+    RouteAdapter routeAdapter;
     RecyclerView recyclerView;
-    Switch type;
-    AutoCompleteTextView start,end;
-    TextView ii,i,ac,all;
-    ArrayList<Route> routes=new ArrayList<>();
-    List<String> stations=new ArrayList<>();
-    FaresAdapter faresAdapter;
-    ArrayAdapter stationsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fare);
-        initUI();
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView2 = findViewById(R.id.autoCompleteTextView2);
+        recyclerView = findViewById(R.id.routesrec);
+
+        initStations();
+
+        ArrayAdapter arrayAdapter=new ArrayAdapter(this,R.layout.item_atcv,R.id.name,stations);
+        autoCompleteTextView.setAdapter(arrayAdapter);
+        autoCompleteTextView2.setAdapter(arrayAdapter);
+
+        ArrayList <Routes> routes=new ArrayList<>();
+        ArrayList <Tickets> fare1=new ArrayList<>();
+        ArrayList <Tickets> fare2=new ArrayList<>();
+
+        fare1.add(new Tickets("J","SLOW",10));
+        fare1.add(new Tickets("J","SLOW",10));
+        fare1.add(new Tickets("R","FAST",20));
+        fare1.add(new Tickets("R","SLOW",20));
+
+        fare2.add(new Tickets("J","SLOW",15));
+        fare2.add(new Tickets("J","SLOW",15));
+        fare2.add(new Tickets("R","FAST",30));
+        fare2.add(new Tickets("R","SLOW",30));
+
+        routes.add(new Routes("Basic route ",fare1));
+        routes.add(new Routes("Another route ",fare2));
+
+        routeAdapter=new RouteAdapter(routes);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(routeAdapter);
+
     }
-
-    void initUI()
+    void initStations()
     {
-        recyclerView=findViewById(R.id.faresRV);
-        type=findViewById(R.id.type);
-        start=findViewById(R.id.start);
-        end=findViewById(R.id.end);
-        ii=findViewById(R.id.general);
-        i=findViewById(R.id.fc);
-        ac=findViewById(R.id.ac);
-        all=findViewById(R.id.all);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        initDataSet();
-
-
-    }
-
-    void initDataSet()
-    {
-        ArrayList<Tickets> tickets=new ArrayList<>();
-        tickets.add(new Tickets(10,"J","slow"));
-        tickets.add(new Tickets(10,"R","slow"));
-        tickets.add(new Tickets(10,"J","fast"));
-        tickets.add(new Tickets(10,"J","slow"));
-        routes.add(new Route("Route 1:",tickets));
-        routes.add(new Route("Route 2:",tickets));
-        faresAdapter=new FaresAdapter(routes);
-        recyclerView.setAdapter(faresAdapter);
-
-
         stations.add("Airoli");
         stations.add("Ambarnath");
         stations.add("Ambivli");
@@ -77,13 +73,21 @@ public class FareActivity extends AppCompatActivity {
         stations.add("Bhiwandi");
         stations.add("Boisar");
         stations.add("Borivali");
-
-        stationsAdapter =new ArrayAdapter<>(getBaseContext(),R.layout.item_actv,R.id.text1,stations);
-
-        start.setAdapter(stationsAdapter);
-        end.setAdapter(stationsAdapter);
+        stations.add("Byculla");
+        stations.add("CBD Belapur");
+        stations.add("Charni Road");
+        stations.add("Chembur");
+        stations.add("Chhatrapati Shivaji Maharaj Terminus");
+        stations.add("Chinchpokli");
+        stations.add("Chunabhatti");
+        stations.add("Churchgate");
+        stations.add("Cotton Green");
+        stations.add("Currey Road");
+        stations.add("Dadar");
+        stations.add("Dahanu Road");
+        stations.add("Dahisar");
+        stations.add("Dativali");
+        stations.add("Diva");
     }
-
-
 
 }

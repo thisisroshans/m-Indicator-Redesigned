@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Update" />
+        <item android:title="Contact Us" />
+        <item android:title="Advertise with us" />
+        <item android:title="Terms &amp; Conditions" />
+        <item android:title="New Feature Guide" />
+        <item android:title="Version" />
+        <item android:title="Mobond" />
+    </group>
+</menu>

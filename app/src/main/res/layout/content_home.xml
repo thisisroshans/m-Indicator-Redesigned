@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".HomeActivity"
+    tools:showIn="@layout/app_bar_home">
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView4"
+        app:layout_constraintEnd_toStartOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_facebook"
+        android:tint="#fff"
+        app:layout_constraintHeight_percent=".10002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintWidth_percent=".10002" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_twitter"
+        android:tint="#fff"
+        app:layout_constraintHeight_percent=".10002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintWidth_percent=".10002" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_whatsapp"
+        android:tint="#fff"
+        app:layout_constraintHeight_percent=".10002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent=".10002" />
+
+    <TextView
+        android:id="@+id/detailsVLV"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:rotation="270"
+        android:text="Mumbai"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/detailsVLV2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:rotation="270"
+        android:text="Others"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="@+id/detailsVLV"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/detailsVLV"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView2" />
+
+    <TextView
+        android:id="@+id/detailsVLV3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:rotation="270"
+        android:text="Safety"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView3"
+        app:layout_constraintEnd_toEndOf="@+id/detailsVLV"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/detailsVLV"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView3" />
+
+    <TextView
+        android:id="@+id/detailsVLV4"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:rotation="270"
+        android:text="Explore"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView4"
+        app:layout_constraintEnd_toEndOf="@+id/detailsVLV"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/detailsVLV"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView2"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView2" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView3"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
