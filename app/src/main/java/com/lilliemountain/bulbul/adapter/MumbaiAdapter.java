@@ -1,5 +1,6 @@
-package com.lilliemountain.bulbul;
+package com.lilliemountain.bulbul.adapter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.lilliemountain.bulbul.LocalActivity;
+import com.lilliemountain.bulbul.R;
 import com.lilliemountain.bulbul.pojo.HomeIcons;
 
 import java.util.List;
@@ -30,6 +33,7 @@ public class MumbaiAdapter extends RecyclerView.Adapter<MumbaiAdapter.MumbaiHold
     public void onBindViewHolder(@NonNull MumbaiHolder mumbaiHolder, int i) {
         mumbaiHolder.photo.setImageResource(homeIconsList.get(i).getDrawable());
         mumbaiHolder.name.setText(homeIconsList.get(i).getName());
+
     }
 
     @Override
@@ -44,6 +48,16 @@ public class MumbaiAdapter extends RecyclerView.Adapter<MumbaiAdapter.MumbaiHold
             super(itemView);
             name=itemView.findViewById(R.id.name);
             photo=itemView.findViewById(R.id.image);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(name.getText().toString().toLowerCase().equals("local"))
+                    {
+                        v.getContext().startActivity(new Intent(v.getContext(), LocalActivity.class));
+                    }
+                }
+            });
         }
+
     }
 }
